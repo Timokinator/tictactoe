@@ -132,3 +132,7 @@ tr td:last-child {
     scale: 1.02;
     background-color: #1c0b7fd5;
 }
+
+.relative {
+    position: relative;
+}

@@ -102,5 +102,8 @@ function restart() {
         document.getElementById('cross-' + i).classList.add('d-none');
     };
 
+// scaleX noch resetten!
+
+
 
 }
