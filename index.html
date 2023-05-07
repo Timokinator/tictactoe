@@ -11,6 +11,28 @@
 </head>
 
 <body>
+    <img class="game-over d-none" id="game-over" src="./images/game-over.png" alt="game over">
+    <button onclick="restart()" class="btn-restart d-none" id="btn-restart">Restart</button>
+    <div class="player-panel">
+        <div id="player-1">
+            <img class="" src="./images/circle.png" alt="">Player 1
+        </div>
+
+        <div class="player-inactive" id="player-2">
+            <img class="" src="./images/cross.png" alt="">Player 2
+        </div>
+    </div>
+
+<div id="line-1" class="horizontal-line" style="top: 318px;"></div>
+<div id="line-2" class="horizontal-line" style="top: 458px;"></div>
+<div id="line-3" class="horizontal-line" style="top: 598px;"></div>
+<div id="line-4" class="horizontal-line make-vertical" style="top: 458px; left: 254px;"></div>
+<div id="line-5" class="horizontal-line make-vertical" style="top: 458px; left: 110px;"></div>
+<div id="line-6" class="horizontal-line make-vertical" style="top: 458px; left: 391px;"></div>
+<div id="line-7" class="horizontal-line" style="top: 458px; left: 254px; transform: rotate(45deg); transform: scaleX(0.0);"></div>
+<div id="line-8" class="horizontal-line" style="top: 458px; left: 254px; transform: rotate(-45deg); transform: scaleX(0.0);"></div>
+
+
     <table>
         <tr>
             <td onclick="fillShape(0)">
@@ -61,7 +83,7 @@
 
 
 
-
+   
 
     <script src="./script.js"></script>
 </body>
