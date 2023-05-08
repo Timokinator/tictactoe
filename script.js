@@ -15,7 +15,6 @@ function fillShape(id) {
             document.getElementById('player-2').classList.add('player-inactive');
         };
         fields[id] = currentShape;
-        console.log(fields);
         draw();
         checkForwin();
     };
@@ -77,7 +76,6 @@ function checkForwin() {
     };
 
     if (winner) {
-        console.log('Gewonnen!', winner);
         gameOver = true;
         setTimeout(function () {
             document.getElementById('game-over').classList.remove('d-none');
@@ -93,17 +91,25 @@ function restart() {
     currentShape = 'cross';
     document.getElementById('game-over').classList.add('d-none');
     document.getElementById('btn-restart').classList.add('d-none');
-    for (let i = 1; i < 9; i++) {
-        document.getElementById('line-' + i).classList.add('d-none');
-    };
+    document.getElementById('player-1').classList.remove('player-inactive');
+    document.getElementById('player-2').classList.add('player-inactive');
 
     for (let i = 0; i < 9; i++) {
         document.getElementById('circle-' + i).classList.add('d-none');
         document.getElementById('cross-' + i).classList.add('d-none');
     };
 
-// scaleX noch resetten!
+    resetLineStyle();
+};
 
 
-
-}
+function resetLineStyle () {
+    document.getElementById('line-1').style = "top: 61px; left: 31px";
+    document.getElementById('line-2').style = "top: 200px; left: 31px";
+    document.getElementById('line-3').style = "top: 341px; left: 31px";
+    document.getElementById('line-4').style = "top: 201px; left: 31px;";
+    document.getElementById('line-5').style = "top: 201px; left: -109px";
+    document.getElementById('line-6').style = "top: 201px; left: 171px";
+    document.getElementById('line-7').style = "top: 200px; left: 30px; transform: rotate(45deg); transform: scaleX(0.0)";
+    document.getElementById('line-8').style = "top: 200px; left: 31px; transform: rotate(-45deg); transform: scaleX(0.0)";
+};

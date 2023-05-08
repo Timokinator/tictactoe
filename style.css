@@ -4,6 +4,8 @@ body {
     align-items: center;
     flex-direction: column;
     height: 100vh;
+    margin: 0;
+    width: 100vw;
 }
 
 .player-panel {
@@ -78,7 +80,7 @@ tr td:last-child {
 
 .horizontal-line {
     height: 10px;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgb(255, 33, 33);
     width: 350px;
     position: absolute;
     transform: scaleX(0.0);
@@ -135,4 +137,12 @@ tr td:last-child {
 
 .relative {
     position: relative;
+}
+
+footer {
+    font-size: 8px;
+    border-top: 1px solid grey;
+    width: 100vw;
+    position: absolute;
+    bottom: 0;
 }
