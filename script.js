@@ -1,6 +1,7 @@
 let fields = [];
 let gameOver = false;
 let currentShape = 'cross';
+let moves = 0;
 
 
 function fillShape(id) {
@@ -15,6 +16,7 @@ function fillShape(id) {
             document.getElementById('player-2').classList.add('player-inactive');
         };
         fields[id] = currentShape;
+        moves++;
         draw();
         checkForwin();
     };
@@ -30,6 +32,9 @@ function draw() {
             document.getElementById(`cross-${i}`).classList.remove('d-none');
     };
 };
+
+
+
 
 
 function checkForwin() {
@@ -76,17 +81,27 @@ function checkForwin() {
     };
 
     if (winner) {
-        gameOver = true;
-        setTimeout(function () {
-            document.getElementById('game-over').classList.remove('d-none');
-            document.getElementById('btn-restart').classList.remove('d-none');
-        }, 850);
+        setGameOver();
     };
+
+    if (moves == 9) {
+        setGameOver();
+    }
+};
+
+
+function setGameOver() {
+    gameOver = true;
+    setTimeout(function () {
+        document.getElementById('game-over').classList.remove('d-none');
+        document.getElementById('btn-restart').classList.remove('d-none');
+    }, 850);
 };
 
 
 function restart() {
     gameOver = false;
+    moves = 0;
     fields = [];
     currentShape = 'cross';
     document.getElementById('game-over').classList.add('d-none');
@@ -103,13 +118,15 @@ function restart() {
 };
 
 
-function resetLineStyle () {
-    document.getElementById('line-1').style = "top: 61px; left: 31px";
-    document.getElementById('line-2').style = "top: 200px; left: 31px";
-    document.getElementById('line-3').style = "top: 341px; left: 31px";
-    document.getElementById('line-4').style = "top: 201px; left: 31px;";
-    document.getElementById('line-5').style = "top: 201px; left: -109px";
-    document.getElementById('line-6').style = "top: 201px; left: 171px";
-    document.getElementById('line-7').style = "top: 200px; left: 30px; transform: rotate(45deg); transform: scaleX(0.0)";
-    document.getElementById('line-8').style = "top: 200px; left: 31px; transform: rotate(-45deg); transform: scaleX(0.0)";
+function resetLineStyle() {
+    document.getElementById('line-1').style = "top: 15%; left: 10%";
+    document.getElementById('line-2').style = "top: 48%; left: 10%";
+    document.getElementById('line-3').style = "top: 82%; left: 10%";
+    document.getElementById('line-4').style = "top: 48%; left: 10.5%";
+    document.getElementById('line-5').style = "top: 48%; left: -24%";
+    document.getElementById('line-6').style = "top: 48%; left: 44%";
+    document.getElementById('line-7').style = "top: 49%; left: 10%; transform: rotate(45deg) scaleX(0.0)";
+    document.getElementById('line-8').style = "top: 49%; left: 10%; transform: rotate(-45deg) scaleX(0.0)";
 };
+
+
