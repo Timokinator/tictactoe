@@ -34,12 +34,24 @@ function draw() {
 };
 
 
-
-
-
 function checkForwin() {
     let winner;
 
+    winner = checkHorizontalLines(winner);
+    winner = checkVerticalLines(winner);
+    winner = checkDiagonalLines(winner);
+
+    if (winner) {
+        setGameOver();
+    };
+
+    if (moves == 9) {
+        setGameOver();
+    }
+};
+
+
+function checkHorizontalLines(winner) {
     if (fields[0] == fields[1] && fields[1] == fields[2] && fields[0]) {
         winner = fields[0];
         document.getElementById('line-1').style.transform = 'scaleX(1)';
@@ -55,6 +67,11 @@ function checkForwin() {
         document.getElementById('line-3').style.transform = 'scaleX(1)';
     };
 
+    return winner;
+};
+
+
+function checkVerticalLines(winner) {
     if (fields[0] == fields[3] && fields[3] == fields[6] && fields[0]) {
         winner = fields[0];
         document.getElementById('line-5').style.transform = 'rotate(90deg) scaleX(1)';
@@ -70,6 +87,11 @@ function checkForwin() {
         document.getElementById('line-6').style.transform = 'rotate(90deg) scaleX(1)';
     };
 
+    return winner;
+};
+
+
+function checkDiagonalLines(winner) {
     if (fields[0] == fields[4] && fields[4] == fields[8] && fields[0]) {
         winner = fields[0];
         document.getElementById('line-7').style.transform = 'rotate(45deg) scaleX(1.2)';
@@ -80,13 +102,7 @@ function checkForwin() {
         document.getElementById('line-8').style.transform = 'rotate(-45deg) scaleX(1.2)';
     };
 
-    if (winner) {
-        setGameOver();
-    };
-
-    if (moves == 9) {
-        setGameOver();
-    }
+    return winner;
 };
 
 
@@ -128,5 +144,3 @@ function resetLineStyle() {
     document.getElementById('line-7').style = "top: 49%; left: 10%; transform: rotate(45deg) scaleX(0.0)";
     document.getElementById('line-8').style = "top: 49%; left: 10%; transform: rotate(-45deg) scaleX(0.0)";
 };
-
-
